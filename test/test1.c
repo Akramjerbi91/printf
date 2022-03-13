@@ -1,80 +1,64 @@
-#include <stdio.h>
 #include "main.h"
 #include <stdarg.h>
-/**
- * print_all - prints all parameters
- * @format: format for parameters
- * Return: void
- */
-int _print(const char *const format, ...)
+#include <stdio.h>
+static int (*check_for_specifiers(const char *format))(va_list)
 {
-	va_list args;
+	unsigned int i;
+	pr_t p[] = {
+		{"c", print_char},
+		{"s", print_string},
+	};
 
-	pr_t printer[] = {{"c", print_char},
-					  {"s", print_string}
-					  };
-	int i, j = 0, count = 0;
+	for (i = 0; p[i].type != NULL; i++)
+	{
+		if (*(p[i].type) == *format)
+		{
+			break;
+		}
+	}
+	return (p[i].f);
+}
 
-	va_start(args, format);
-	if ( format == NULL)
-	return (-1);
+/**
+ * _printf - prints anything
+ * @format: list of argument types passed to the function
+ *
+ * Return: number of characters printed
+ */
+int _print(const char *format, ...)
+{
+	unsigned int i = 0, count = 0;
+	va_list valist;
+	int (*f)(va_list);
 
+	if (format == NULL)
+		return (-1);
+	va_start(valist, format);
 	while (format[i])
 	{
-		if (format[i] == '%')
-			return (-1);
-		if (format[i + 1] == '%')
-			_putchar('%' + 0);
-			return (1);
 		for (; format[i] != '%' && format[i]; i++)
 		{
 			_putchar(format[i]);
 			count++;
 		}
-		j = 0;
-		while (j < 2)
+		if (!format[i])
+			return (count);
+		f = check_for_specifiers(&format[i + 1]);
+		if (f != NULL)
 		{
-			if (format[i] == *printer[j].type)
-			{
-				printer[j].f( args);
-			}
-			j++;
-			count++;
+			count += f(valist);
+			i += 2;
+			continue;
 		}
-		i++;
+		if (!format[i + 1])
+			return (-1);
+		_putchar(format[i]);
+		count++;
+		if (format[i + 1] == '%')
+			i += 2;
+		else
+			i++;
 	}
-	va_end(args);
-	return(count);
-}
-/**
- * print_string - prints a string
- * @separator: separator
- * @args: list of variadic args
- * Return: void
- */
-int print_string(va_list args)
-{
-	char *arg = va_arg(args, char *);
-int i;
-	if (arg == NULL)
-	{
-		arg = "(Nill)";
-	}
-	for (i = 0; arg[i] != '\0'; i++)
-	{
-		_putchar(arg[i]);
-	}
-	return (i);
-}
-/**
- * print_char - prints a character
- * @separator: separator
- * @args: list of variadic args
- * Return: void
- */
-int print_char(va_list args)
-{
-	int c = va_arg(args, int);
-	_putchar(c);
-	return (1);
+	va_end(valist);
+	return (count);
 }
