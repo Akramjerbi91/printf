@@ -1,11 +1,20 @@
 #ifndef HEADER_FILE
 #define HEADER_FILE
-int _printf(const char *format, ...);
-typedef struct format
+#include <stdarg.h>
+
+int _print(const char * const format, ...);
+int _putchar(char c);
+int print_string(va_list args);
+int print_char(va_list args);
+
+/**
+ * struct printer - Struct printer
+ * @type: The types
+ * @f: The function associated
+ */
+typedef struct printer
 {
-	char c;
-	char *s;
-	char pers;
-}format_t;
-char write_char(const char c);
+	char *type;
+	int (*f)(va_list args);
+} pr_t;
 #endif
