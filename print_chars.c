@@ -32,3 +32,10 @@ int i;
 	}
 	return (i);
 }
+int print_percentage(va_list args)
+{
+	(void)args;
+
+	_putchar('%');
+	return (1);
+}

@@ -23,10 +23,6 @@ int _printf(const char *format, ...)
 			_putchar(format[i]);
 			count++;
 		}
-			if (format[i] == '%' && format[i + 1] == '%')
-		{	_putchar('%' + 0);
-			return (1);
-		}
 		if (!format[i])
 			return (count);
 		f = check_for_specifiers(&format[i + 1]);
