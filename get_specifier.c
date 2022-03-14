@@ -6,23 +6,25 @@
  *
  * Return: pointer to the correct func
  */
-int (*check_for_specifiers(const char *format))(va_list)
+int check_for_specifiers(const char format, va_list args)
 {
-	register int i;
+ int i = 0, count = 0;
 	pr_t p[] = {
-		{"c", print_char},
-		{"s", print_string},
-		{"i", print_int},
-		{"d", print_int},
-		{"%%", print_percentage}
+		{'c', print_char},
+		{'s', print_string},
+		{'i', print_int},
+		{'d', print_int},
+		{'%', print_percent}
 	};
 
-	for (i = 0; p[i].type != NULL; i++)
+	while (p[i].type != 0)
 	{
-		if (*(p[i].type) == *format)
+		if (p[i].type == format)
 		{
-			break;
+			count = count + p[i].f(args);
+			return (count);
 		}
+		i++;
 	}
-	return (p[i].f);
+	return (0);
 }
