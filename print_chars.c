@@ -24,7 +24,7 @@ int print_string(va_list args)
 int i;
 	if (arg == NULL)
 	{
-		arg = "(Nill)";
+		arg = "(null)";
 	}
 	for (i = 0; arg[i] != '\0'; i++)
 	{
@@ -32,7 +32,13 @@ int i;
 	}
 	return (i);
 }
-int print_percentage(va_list args)
+/**
+ * print_percent - prints a percent
+ * @args: list of variadic args
+ *
+ * Return: index
+ */
+int print_percent(va_list args)
 {
 	(void)args;
 
