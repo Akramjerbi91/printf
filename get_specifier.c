@@ -3,12 +3,12 @@
 /**
  * check_for_specifiers - function that selects the correct specifier
  * @format: char pointer specifier
- *
+ * @args: argument
  * Return: pointer to the correct func
  */
 int check_for_specifiers(const char format, va_list args)
 {
- int i = 0, count = 0;
+	int i = 0, count = 0;
 	pr_t p[] = {
 		{'c', print_char},
 		{'s', print_string},
@@ -27,4 +27,5 @@ int check_for_specifiers(const char format, va_list args)
 		i++;
 	}
 	return (0);
+
 }
