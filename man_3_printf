@@ -1,0 +1,14 @@
+.\" Manpage for _printf
+.TH man 8 "14 Mar 2022" "1.0" "nuseradd man page"
+.SH NAME
+_printf : prints formated string for debugging purposes
+.SH SYNOPSIS
+_printf format argument
+.SH DESCRIPTION
+%c prints one character
+%s print a string
+%% print percent
+%i print an integer
+%d print an integer
+.SH AUTHORS
+Akram Jerbi & Khawla Daouay
