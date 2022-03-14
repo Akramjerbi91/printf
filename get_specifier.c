@@ -6,7 +6,7 @@
  *
  * Return: pointer to the correct func
  */
-static int (*check_for_specifiers(const char *format))(va_list)
+int (*check_for_specifiers(const char *format))(va_list)
 {
 	register int i;
 	pr_t p[] = {
