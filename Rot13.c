@@ -4,7 +4,7 @@
  *@args: input
  * Return: void
  */
-char print_Rot13(va_list args)
+int print_Rot13(va_list args)
 {	int i, j;
 	int sum = 0;
 	char *s = va_arg(args, char *);
