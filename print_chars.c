@@ -21,7 +21,8 @@ int print_char(va_list args)
 int print_string(va_list args)
 {
 	char *arg = va_arg(args, char *);
-int i;
+	int i;
+
 	if (arg == NULL)
 	{
 		arg = "(null)";
@@ -38,10 +39,11 @@ int i;
  *
  * Return: index
  */
-int print_percent(va_list args)
+int print_percent(va_list __attribute__((unused)) args)
 {
-	(void)args;
+	char percent = '%';
 
-	_putchar('%');
+	_putchar(percent);
+
 	return (1);
 }

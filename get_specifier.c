@@ -3,29 +3,28 @@
 /**
  * check_for_specifiers - function that selects the correct specifier
  * @format: char pointer specifier
- * @args: argument
  * Return: pointer to the correct func
  */
-int check_for_specifiers(const char format, va_list args)
+
+int (*check_for_specifiers(const char *format))(va_list)
 {
-	int i = 0, count = 0;
+	int i;
+
 	pr_t p[] = {
-		{'c', print_char},
-		{'s', print_string},
-		{'i', print_int},
-		{'d', print_int},
-		{'%', print_percent}
+		{"c", print_char},
+		{"s", print_string},
+		{"i", print_int},
+		{"d", print_int},
+		{"%", print_percent},
+		{NULL, NULL},
 	};
 
-	while (p[i].type != 0)
+	for (i = 0; p[i].type != NULL; i++)
 	{
-		if (p[i].type == format)
+		if (*format == *(p[i].type))
 		{
-			count = count + p[i].f(args);
-			return (count);
+			break;
 		}
-		i++;
 	}
-	return (0);
-
+	return (p[i].f);
 }
