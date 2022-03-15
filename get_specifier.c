@@ -15,6 +15,7 @@ int (*check_for_specifiers(const char *format))(va_list)
 		{"s", print_string},
 		{"i", print_int},
 		{"d", print_int},
+		{"b", dec_to_binary},
 		{"r", print_revers},
 		{"%", print_percent},
 		{"R", print_Rot13},

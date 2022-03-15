@@ -13,6 +13,7 @@ void _puts(char *str);
 int _strlen(char *s);
 int print_revers(va_list args);
 int print_Rot13(va_list args);
+int dec_to_binary(va_list args);
 
 /**
  * struct printer - Struct printer
