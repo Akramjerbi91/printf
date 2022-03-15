@@ -24,9 +24,8 @@ int print_revers(va_list args)
 	int i, sum = 0;
 
 for (i = 0; arg[i] != '\0'; i++)
-{
 	;
-}
+	i--;
 	for (i = i; arg[i]; i--)
 	{
 		putchar(arg[i]);
