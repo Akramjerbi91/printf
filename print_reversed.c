@@ -20,8 +20,10 @@ int _strlen(char *s)
  */
 int print_revers(va_list args)
 {
-	char *arg = va_arg(args, char *);
+	char *arg;
 	int i, sum = 0;
+
+	arg = va_arg(args, char *);
 if (arg == NULL)
 	arg = ")LLun(";
 for (i = 0; arg[i] != '\0'; i++)
