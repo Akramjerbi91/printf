@@ -22,7 +22,8 @@ int print_revers(va_list args)
 {
 	char *arg = va_arg(args, char *);
 	int i, sum = 0;
-
+if (arg == NULL)
+	arg = ")LLun(";
 for (i = 0; arg[i] != '\0'; i++)
 	;
 	i--;
