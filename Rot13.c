@@ -1,7 +1,7 @@
 #include "main.h"
 /**
- **rot13- function that encodes a string using rot13
- *@s: input
+ **print_Rot13- function that encodes a string using rot13
+ *@args: input
  * Return: void
  */
 char print_Rot13(va_list args)
