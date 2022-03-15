@@ -1,3 +1,4 @@
+#include "main.h"
 #include <stdarg.h>
 /**
  * check_for_specifiers - function that selects the correct specifier
