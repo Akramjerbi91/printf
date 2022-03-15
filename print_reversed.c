@@ -20,18 +20,18 @@ int _strlen(char *s)
  */
 int print_revers(va_list args)
 {
-	char *arg;
+	char *str;
 	int i, sum = 0;
 
-	arg = va_arg(args, char *);
-if (arg == NULL)
-	arg = ")LLun(";
-for (i = 0; arg[i] != '\0'; i++)
-	;
+	str = va_arg(args, char *);
+	if (str == NULL)
+		str = ")llun(";
+	for (i = 0; str[i]; i++)
+		;
 	i--;
-	for (i = i; arg[i]; i--)
+	for (i = i; str[i]; i--)
 	{
-		putchar(arg[i]);
+		_putchar(str[i]);
 		sum++;
 	}
 	return (sum);
