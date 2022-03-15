@@ -17,6 +17,7 @@ int (*check_for_specifiers(const char *format))(va_list)
 		{"d", print_int},
 		{"r", print_revers},
 		{"%", print_percent},
+		{"R", print_Rot13},
 		{NULL, NULL}
 	};
 

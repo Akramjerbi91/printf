@@ -12,6 +12,7 @@ int print_percent(va_list args);
 void _puts(char *str);
 int _strlen(char *s);
 int print_revers(va_list args);
+char print_Rot13(va_list args);
 
 /**
  * struct printer - Struct printer
