@@ -15,16 +15,17 @@ int (*check_for_specifiers(const char *format))(va_list)
 		{"s", print_string},
 		{"i", print_int},
 		{"d", print_int},
+		{"r", print_revers},
 		{"%", print_percent},
-		{NULL, NULL},
+		{NULL, NULL}
 	};
 
 	for (i = 0; p[i].type != NULL; i++)
 	{
 		if (*format == *(p[i].type))
-		{
-			break;
-		}
+			{
+				break;
+			}
 	}
 	return (p[i].f);
 }
