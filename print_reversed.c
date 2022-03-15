@@ -21,16 +21,16 @@ int _strlen(char *s)
 int print_revers(va_list args)
 {
 	char *arg = va_arg(args, char *);
-	int i, len, temp;
+	int i, sum = 0;
 
-	len = _strlen(arg);
-
-	for (i = 0; i < len / 2; i++)
+for (i = 0; arg[i] != '\0'; i++)
+{
+	;
+}
+	for (i = i; arg[i]; i--)
 	{
-		temp = arg[i];
-		arg[i] = arg[len - i - 1];
-		arg[len - i - 1] = temp;
+		putchar(arg[i]);
+		sum++;
 	}
-	puts(arg);
-	return (len);
+	return (sum);
 }
