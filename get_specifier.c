@@ -1,4 +1,3 @@
-#include "main.h"
 #include <stdarg.h>
 /**
  * check_for_specifiers - function that selects the correct specifier
@@ -23,9 +22,9 @@ int (*check_for_specifiers(const char *format))(va_list)
 	for (i = 0; p[i].type != NULL; i++)
 	{
 		if (*format == *(p[i].type))
-			{
-				break;
-			}
+		{
+			break;
+		}
 	}
 	return (p[i].f);
 }
