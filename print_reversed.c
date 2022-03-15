@@ -31,5 +31,6 @@ int print_revers(va_list args)
 		arg[i] = arg[len - i - 1];
 		arg[len - i - 1] = temp;
 	}
+	puts(arg);
 	return (len);
 }
